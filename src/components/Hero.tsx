@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
 
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden grain-overlay">
@@ -59,13 +66,13 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <a
-              href="#contact"
+              onClick={() => scrollToId("contact")}
               className="text-sm px-8 py-3.5 bg-primary text-primary-foreground rounded-sm hover:shadow-[0_0_30px_hsl(330_100%_65%/0.2),0_0_30px_hsl(30_100%_62%/0.3)] transition-all duration-300 font-medium tracking-wide"
             >
               Book a Set
             </a>
             <a
-              href="#listen"
+              onClick={() => scrollToId("listen")}
               className="text-sm px-8 py-3.5 border border-border text-foreground rounded-sm hover:border-muted-foreground transition-colors duration-300 tracking-wide"
             >
               Listen
